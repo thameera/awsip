@@ -1,0 +1,28 @@
+{
+  "name": "awsip",
+  "version": "1.0.0",
+  "description": "Given an AWS IP address, shows which region it belongs to.",
+  "main": "entry.js",
+  "scripts": {
+    "build": "browserify entry.js > bundle.js",
+    "dist": "browserify -p tinyify entry.js > bundle.js",
+    "watch": "nodemon --ignore bundle.js --exec npm run build",
+    "deploy": "scp index.html bundle.js tham:awsip"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thameera/awsip.git"
+  },
+  "keywords": [],
+  "author": "Thameera Senanayaka <me@thameera.com> (https://thameera.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thameera/awsip/issues"
+  },
+  "homepage": "https://github.com/thameera/awsip#readme",
+  "dependencies": {
+    "browserify": "^16.5.0",
+    "ip-address": "^6.1.0",
+    "tinyify": "^2.5.2"
+  }
+}
