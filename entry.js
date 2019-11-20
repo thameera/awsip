@@ -21,7 +21,14 @@ const getIPRanges = async () => {
       service: p.service
     }
   })
-  console.log('...done')
+  console.log('...done IP range fetch')
+}
+
+const getRegionNames = async () => {
+  console.log('Fetching AWS regions...')
+  const data = await fetch('https://raw.githubusercontent.com/jsonmaur/aws-regions/master/regions.json')
+  window.AWS_REGIONS = await data.json()
+  console.log('...done region fetch')
 }
 
 const display = (msg) => {
@@ -32,7 +39,8 @@ const showResults = (prefix) => {
   if (!prefix) {
     return display('Not an AWS IP')
   }
-  let out = 'Region: ' + prefix.region
+  let out = 'Region: ' + AWS_REGIONS.find(r => r.code === prefix.region).full_name
+  out += '<br>Region code: ' + prefix.region
   out += '<br>Service: ' + prefix.service
   out += '<br>Subnet: ' + prefix.addr.address
   display(out)
@@ -53,4 +61,7 @@ const search = async () => {
 }
 
 document.getElementById('search').addEventListener('click', search)
-window.onload = getIPRanges
+window.onload = () => {
+  getIPRanges()
+  getRegionNames()
+}
