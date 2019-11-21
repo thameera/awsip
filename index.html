@@ -3,13 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>AWS IP Region Locator</title>
+  <link href="./style.css" rel="stylesheet">
 </head>
 <body>
-  <div>
-    <input type="text" id="ip">
-    <button id="search">Search</button>
+
+  <div class="wrapper">
+    <div class="inner-wrapper">
+      <div>
+        <input type="text" id="ip" autofocus>
+      </div>
+      <div id="result"></div>
+    </div>
   </div>
-  <div id="result"></div>
+
   <script src="./bundle.js"></script>
 </body>
 </html>

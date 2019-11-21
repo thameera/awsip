@@ -60,7 +60,10 @@ const search = async () => {
   }
 }
 
-document.getElementById('search').addEventListener('click', search)
+document.getElementById('ip').addEventListener('change', search)
+document.getElementById('ip').addEventListener('keydown', search)
+document.getElementById('ip').addEventListener('keyup', search)
+document.getElementById('ip').addEventListener('input', search)
 window.onload = () => {
   getIPRanges()
   getRegionNames()

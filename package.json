@@ -7,7 +7,7 @@
     "build": "browserify entry.js > bundle.js",
     "dist": "browserify -p tinyify entry.js > bundle.js",
     "watch": "nodemon --ignore bundle.js --exec npm run build",
-    "deploy": "scp index.html bundle.js tham:awsip"
+    "deploy": "scp index.html bundle.js style.css tham:awsip"
   },
   "repository": {
     "type": "git",
