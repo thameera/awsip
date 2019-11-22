@@ -6,6 +6,7 @@ const getIPRanges = async () => {
   const data = await fetch('https://ip-ranges.amazonaws.com/ip-ranges.json')
   const j = await data.json()
 
+  // Arrays are reversed so more specific service names are found (eg: EC2 instead of AMAZON)
   window.AWS_RANGE_4 = j.prefixes.map(p => {
     const addr = new IpAddr.Address4(p.ip_prefix)
     return {
@@ -13,7 +14,7 @@ const getIPRanges = async () => {
       region: p.region,
       service: p.service
     }
-  })
+  }).reverse()
   window.AWS_RANGE_6 = j.ipv6_prefixes.map(p => {
     const addr = new IpAddr.Address6(p.ipv6_prefix)
     return {
@@ -21,7 +22,7 @@ const getIPRanges = async () => {
       region: p.region,
       service: p.service
     }
-  })
+  }).reverse()
   console.log('...done IP range fetch')
 }
 
