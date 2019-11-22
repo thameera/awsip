@@ -48,6 +48,18 @@ input#ip:focus {
 }
 /* /INPUT */
 
+/* EXAMPLE */
+#example {
+  text-align: center;
+  margin: 10px;
+}
+
+#example a {
+  text-decoration: none;
+  color: #817171;
+}
+/* /EXAMPLE */
+
 /* RESULT */
 #result {
   margin: 10px;

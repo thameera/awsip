@@ -1,4 +1,5 @@
 const IpAddr = require('ip-address')
+const EXAMPLE_IP = '54.241.40.178'
 
 const getIPRanges = async () => {
   console.log('Fetching AWS IP ranges...')
@@ -48,7 +49,13 @@ const showResults = (prefix) => {
 
 const search = async () => {
   const ipstr = document.getElementById('ip').value
-  if (!ipstr.trim()) return display('')
+  if (!ipstr.trim()) {
+    document.getElementById('example').style.display = 'block'
+    return display('')
+  }
+
+  document.getElementById('example').style.display = 'none'
+
   const ip4 = new IpAddr.Address4(ipstr)
   const ip6 = new IpAddr.Address6(ipstr)
 
@@ -59,12 +66,22 @@ const search = async () => {
   } else {
     display('Not a valid IP address')
   }
+  document.getElementById('ip').focus()
+}
+
+const showExample = (e) => {
+  e.preventDefault()
+  document.getElementById('ip').value = EXAMPLE_IP
+  search()
 }
 
 document.getElementById('ip').addEventListener('change', search)
 document.getElementById('ip').addEventListener('keydown', search)
 document.getElementById('ip').addEventListener('keyup', search)
 document.getElementById('ip').addEventListener('input', search)
+
+document.getElementById('example').addEventListener('click', showExample)
+
 window.onload = () => {
   getIPRanges()
   getRegionNames()
