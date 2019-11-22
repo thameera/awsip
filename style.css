@@ -40,3 +40,16 @@ input#ip:focus {
 	color: #BBDEFB;
 }
 /* /INPUT */
+
+/* RESULT */
+#result {
+  margin: 10px;
+  font-size: 50px;
+  color: #616161;
+}
+
+#result span {
+  font-weight: bold;
+  color: #817171;
+}
+/* /RESULT */

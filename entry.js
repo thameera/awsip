@@ -39,10 +39,10 @@ const showResults = (prefix) => {
   if (!prefix) {
     return display('Not an AWS IP')
   }
-  let out = 'Region: ' + AWS_REGIONS.find(r => r.code === prefix.region).full_name
-  out += '<br>Region code: ' + prefix.region
-  out += '<br>Service: ' + prefix.service
-  out += '<br>Subnet: ' + prefix.addr.address
+  let out = 'Region: <span>' + AWS_REGIONS.find(r => r.code === prefix.region).full_name + '</span>'
+  out += '<br>Region code: <span>' + prefix.region + '</span>'
+  out += '<br>Service: <span>' + prefix.service + '</span>'
+  out += '<br>Subnet: <span>' + prefix.addr.address + '</span>'
   display(out)
 }
 
