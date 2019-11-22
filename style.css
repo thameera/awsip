@@ -15,13 +15,14 @@ body {
 }
 
 .inner-wrapper {
-  height: 45%;
+  height: 55%;
 }
 
 /* HEADER */
 h1 {
   text-align: center;
   color: #f0f0f0;
+  font-size: 3em;
 }
 /* /HEADER */
 

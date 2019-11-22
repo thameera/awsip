@@ -79,6 +79,7 @@ document.getElementById('ip').addEventListener('change', search)
 document.getElementById('ip').addEventListener('keydown', search)
 document.getElementById('ip').addEventListener('keyup', search)
 document.getElementById('ip').addEventListener('input', search)
+document.getElementById('ip').addEventListener('click', function() { this.select() })
 
 document.getElementById('example').addEventListener('click', showExample)
 
