@@ -49,12 +49,7 @@ const showResults = (prefix) => {
 
 const search = async () => {
   const ipstr = document.getElementById('ip').value
-  if (!ipstr.trim()) {
-    document.getElementById('example').style.display = 'block'
-    return display('')
-  }
-
-  document.getElementById('example').style.display = 'none'
+  if (!ipstr.trim()) return display('')
 
   const ip4 = new IpAddr.Address4(ipstr)
   const ip6 = new IpAddr.Address6(ipstr)

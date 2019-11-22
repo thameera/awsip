@@ -23,8 +23,31 @@ h1 {
   text-align: center;
   color: #f0f0f0;
   font-size: 3em;
+  margin-bottom: 0;
 }
 /* /HEADER */
+
+/* SUBTITLE */
+#subtitle {
+  text-align: center;
+  margin: 10px;
+}
+
+#subtitle a {
+  text-decoration: none;
+  color: #817171;
+}
+
+#subtitle a:hover {
+  color: #a1a1a1;
+}
+
+#subtitle span {
+  display: inline;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+/* /SUBTITLE */
 
 /* INPUT */
 input#ip {
@@ -48,18 +71,6 @@ input#ip:focus {
 	color: #BBDEFB;
 }
 /* /INPUT */
-
-/* EXAMPLE */
-#example {
-  text-align: center;
-  margin: 10px;
-}
-
-#example a {
-  text-decoration: none;
-  color: #817171;
-}
-/* /EXAMPLE */
 
 /* RESULT */
 #result {
