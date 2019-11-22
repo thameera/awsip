@@ -15,8 +15,15 @@ body {
 }
 
 .inner-wrapper {
-  height: 25%;
+  height: 45%;
 }
+
+/* HEADER */
+h1 {
+  text-align: center;
+  color: #f0f0f0;
+}
+/* /HEADER */
 
 /* INPUT */
 input#ip {
