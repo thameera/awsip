@@ -33,6 +33,19 @@ const getRegionNames = async () => {
   console.log('...done region fetch')
 }
 
+const getRandomIP = (() => {
+  let lastID = -1
+
+  return () => {
+    let randomID
+    do {
+      randomID = Math.floor(Math.random() * EXAMPLE_IPS.length)
+    } while (randomID === lastID)
+    lastID = randomID
+    return EXAMPLE_IPS[randomID]
+  }
+})()
+
 const display = (msg) => {
   document.getElementById('result').innerHTML = msg 
 }
@@ -72,8 +85,7 @@ const search = async () => {
 
 const showExample = (e) => {
   e.preventDefault()
-  const example = EXAMPLE_IPS[Math.floor(Math.random() * EXAMPLE_IPS.length)]
-  document.getElementById('ip').value = example
+  document.getElementById('ip').value = getRandomIP()
   search()
 }
 
