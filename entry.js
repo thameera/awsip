@@ -1,5 +1,6 @@
 const IpAddr = require('ip-address')
 const EXAMPLE_IPS = ['54.241.40.178', '18.190.43.251', '54.222.59.179', '13.248.113.190', '13.248.11.186', '52.95.156.30', '54.239.4.59', '52.144.228.220', '54.231.249.126', '52.119.249.145', '13.35.10.89', '3.231.2.9', '18.231.194.9', '18.184.2.128', '99.79.126.229', '13.233.177.2', '34.218.119.49', '52.219.64.100', '150.222.77.80', '52.94.22.44', '35.176.99.141', '2620:107:300f::3e35:3', '2600:1fff:5000::8143', '2600:9000:fff:32::1903:420', '2406:daff:6000::71f:aa80', '2a05:d014::8512:715e:3ad0']
+let fetched = false
 
 /*
  * Pre-fetch IP rangse from AWS
@@ -92,6 +93,10 @@ const search = async () => {
   const ipstr = document.getElementById('ip').value
   if (!ipstr.trim()) return display('')
 
+  if (!fetched) {
+    return display('Loading...')
+  }
+
   const ip4 = new IpAddr.Address4(ipstr)
   const ip6 = new IpAddr.Address6(ipstr)
 
@@ -125,7 +130,9 @@ document.getElementById('ip').addEventListener('click', function() { this.select
 
 document.getElementById('example').addEventListener('click', showExample)
 
-window.onload = () => {
-  getIPRanges()
-  getRegionNames()
+window.onload = async () => {
+  await Promise.all([getIPRanges(), getRegionNames()])
+  fetched = true
+  // Call `search` in case the user had entered an IP before loading the JSONs
+  search()
 }
