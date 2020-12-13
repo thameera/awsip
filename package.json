@@ -21,9 +21,9 @@
   },
   "homepage": "https://github.com/thameera/awsip#readme",
   "dependencies": {
-    "browserify": "^16.5.0",
-    "ip-address": "^6.1.0",
-    "nodemon": "^2.0.1",
+    "browserify": "^16.5.2",
+    "ip-address": "^6.4.0",
+    "nodemon": "^2.0.6",
     "tinyify": "^2.5.2"
   }
 }
